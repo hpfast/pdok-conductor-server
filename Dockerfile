@@ -1,9 +1,9 @@
 # conductor:server - Netflix conductor server
 # First checkout the source and build it
 #stage 0: build the conductor server jar
-FROM java:8-jre-alpine as builder
+FROM java:8-jre as builder
 RUN apk update
-RUN apk add git
+RUN apk add git gradle
 
 #get the source and build it
 RUN git clone https://github.com/Netflix/conductor /src
