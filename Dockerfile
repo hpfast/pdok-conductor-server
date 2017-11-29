@@ -2,8 +2,8 @@
 # First checkout the source and build it
 #stage 0: build the conductor server jar
 FROM java:8-jre as builder
-RUN apk update
-RUN apk add git gradle
+RUN apt-get update
+RUN apt-get install -y git
 
 #get the source and build it
 RUN git clone https://github.com/Netflix/conductor /src
