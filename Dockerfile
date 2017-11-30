@@ -3,12 +3,12 @@
 #stage 0: build the conductor server jar
 FROM java:8-jdk as builder
 RUN apt-get update
-RUN apt-get install -y git
+RUN apt-get install -y git gradle
 
 #get the source and build it
 RUN git clone https://github.com/Netflix/conductor /src
 WORKDIR /src
-RUN ./gradlew build -x test
+RUN gradle build
 WORKDIR /src/server/build/libs
 RUN for i in conductor*-all.jar; do mv "$i" "`echo $i | sed 's/-SNAPSHOT//'`"; done
 
