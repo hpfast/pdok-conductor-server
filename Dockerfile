@@ -1,7 +1,7 @@
 # conductor:server - Netflix conductor server
 # First checkout the source and build it
 #stage 0: build the conductor server jar
-FROM java:8-jdk as builder
+FROM openjdk:8-jdk as builder
 RUN apt-get update
 RUN apt-get install -y git gradle
 
