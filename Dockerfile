@@ -8,7 +8,7 @@ RUN apt-get install -y git
 #get the source and build it
 RUN git clone https://github.com/Netflix/conductor /src
 WORKDIR /src
-RUN ./gradlew build
+RUN ./gradlew build -x test
 WORKDIR /src/server/build/libs
 RUN for i in conductor*-all.jar; do mv "$i" "`echo $i | sed 's/-SNAPSHOT//'`"; done
 
