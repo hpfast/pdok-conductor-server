@@ -6,7 +6,7 @@ RUN apt-get update
 RUN apt-get install -y git gradle
 
 #get the source and build it
-RUN git clone --branch 1.8.1 https://github.com/Netflix/conductor /src
+RUN git clone --branch v1.8.1 https://github.com/Netflix/conductor /src
 WORKDIR /src
 RUN gradle build
 WORKDIR /src/server/build/libs
